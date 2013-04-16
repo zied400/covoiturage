@@ -1,7 +1,7 @@
 <?php
 session_start();
 ?>
-ok
+okay
 <html>
 <table width="930" border="0" align="left" >
 	<TR>
