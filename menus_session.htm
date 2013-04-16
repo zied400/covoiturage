@@ -1,0 +1,42 @@
+
+	<script type="text/javascript">
+		<!--
+		function confirmation()	{
+		if (confirm('Etes-vous sûr de vouloir suprimer vos données ?')) 
+		{ document.location.href='supprimer_donnees.php'; }
+		else {document.location.href='index2.php'; }
+		}
+		// -->
+	</script>
+
+<table width="700" border="0" cellspacing="0" ALIGN="center">
+
+<TR>
+
+<td width="110" align="center" VALIGN="middle">
+	<input type="button" value="Accueil" style="width:98px" onClick="javascript:document.location.href='index2.php'" >	
+</TD>
+
+<td width="161" align="center">
+	<input type="button" value="Modifier mes donn&eacute;es" style="width:150px" onClick="javascript:document.location.href='saisir_donnees_perso.php?modif=1'" >
+</TD>
+
+<td width="111" align="center">
+	<input type="button" value="Saisir un trajet" style="width:110px" onClick="javascript:document.location.href='saisir_trajet.php'" >	
+</td>
+
+<td width="125" align="center">
+	<input type="button" value="G&eacute;rer mes trajets" style="width:125px" onClick="javascript:document.location.href='trajets_conducteur.php'" >	
+</td>
+
+
+<td width="121" align="center">
+	<input type="button" value="Me d&eacute;sinscrire" style="width:110px" onClick="confirmation()" >	
+</td>
+
+<td width="121" align="center">
+	<input type="button" value="Se deconnecter" style="width:120px" onClick="javascript:document.location.href='logout.php'" >	
+</TD>
+
+</TR>
+</table>
