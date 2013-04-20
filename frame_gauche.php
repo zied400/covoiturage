@@ -30,7 +30,7 @@ Covoiturage 1.1
 
 <?php
 
-	  		if (isset($_POST['loginOK']) && $_SESSION['loginOK'] == true) {
+	  		if (isset($_SESSION['loginOK'])) {
 				
 				echo "Votre espace : "; 
 				echo"<STRONG>";

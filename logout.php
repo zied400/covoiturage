@@ -7,5 +7,5 @@ $_SESSION = array();
 
 // On détruit la session
 session_destroy();
-include('index2.php')
+include('index.php')
 ?>

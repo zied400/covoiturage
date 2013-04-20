@@ -3,7 +3,10 @@ session_start();
 ?>
 
 <html>
+<link rel="stylesheet" type="text/css" href="style.css" />
+
 <script type="text/javascript" language="Javascript" >
+
 <!--
 function verification()
 {
@@ -75,7 +78,7 @@ if ($_SESSION['loginOK'] == true) {
 	echo "</br>";	
 }
 	
-If ($modif != 2) {
+If (isset($_GET['modif']) && $_GET['modif']!= 2) {
 
 $modif=$_GET['modif'];
 

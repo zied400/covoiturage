@@ -1,26 +1,9 @@
-<?php
-session_start();
-?>
-
-<html>
-<table width="940" border="0" align="left" >
-	<TR>
-		<TD width="150" valign="top">
-			<?php include('frame_gauche.php'); ?>
-		</TD>
-
-		<TD valign="top">
 
 	<?php
 	
-	if ($_SESSION['loginOK'] == true) {
-	include('menus_session.htm');
-	echo "</br>";	
-	}
+if(isset($_GET['modif'])){$modif=$_GET['modif'];}else{$modif="";}
+if(isset($_GET['num_traj'])){$trajet2=$_GET['num_traj'];}else{$trajet2="";}
 
-	$modif=$_GET['modif'];
-		
-	$trajet2=$_GET['num_traj'];
 	
 		
 	$id_cond=$_SESSION['id'];
@@ -31,8 +14,9 @@ session_start();
 	$ville2=mysql_real_escape_string(htmlspecialchars($_POST['ville2']));
 	$heure=mysql_real_escape_string(htmlspecialchars($_POST['heure']));
 	$heure_retour=mysql_real_escape_string(htmlspecialchars($_POST['heure_retour']));
-	$type_trajet=mysql_real_escape_string(htmlspecialchars($_POST['type_trajet']));
-	$date_trajet=mysql_real_escape_string(htmlspecialchars($_POST['date_trajet']));
+	if(isset($_POST['type_trajet'])){$type_trajet=mysql_real_escape_string(htmlspecialchars($_POST['type_trajet']));}else{$type_trajet="";}
+		if(isset($_POST['date_trajet'])){$date_trajet=mysql_real_escape_string(htmlspecialchars($_POST['date_trajet']));}else{$date_trajet="";}
+	
 	$date_trajet_retour=mysql_real_escape_string(htmlspecialchars($_POST['date_trajet_retour']));
 	$coment=nl2br(mysql_real_escape_string(htmlspecialchars($_POST['coment'])));
 	
@@ -54,14 +38,13 @@ session_start();
 	
 			echo "Les modifications on bien été prises en compte <br /><br /><br />";
 		
-			echo "<a href=\"trajets_conducteur.php\">Retourner à mes trajets</a>";
+			//echo "<a href=\"trajets_conducteur.php\">Retourner à mes trajets</a>";
 		}
 		
 		// si le numero de trajet ne correspond pas à un trajet de l'utilisateur connecté:
 		else{ 
 			echo "une erreur est survenue";
-			echo "</BR></bR>";
-			echo "<a href=\"index2.php\">Retour à l'accueil</a>";
+			
 		}
 	}
 	
@@ -75,9 +58,7 @@ session_start();
 		}
 			
 		echo "Votre trajet a bien été enregistré, merci. <br /><br /><br />";
-		echo "<a href=\"trajets_conducteur.php\">Retour vers mes trajets</a>";
-		echo "&nbsp;&nbsp;&nbsp;&nbsp";
-		echo "<a href=\"index2.php\">Retour à l'accueil</a>";
+		
 		}
 			
 		
@@ -85,9 +66,3 @@ session_start();
 		
 		
 	?>
-	</TD>
-</TR>
-
-</table>	
-</html>
-

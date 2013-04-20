@@ -1,6 +1,6 @@
 <?php
 session_start();
-echo"<HTML>";
+
 
 include('connexion_SQL.php');
 
@@ -18,7 +18,7 @@ include('connexion_SQL.php');
 		
 		if ($donnees == "") 
 			{
-			include('index2.php');
+			include('index.php');
 			echo "<script>alert(unescape('D%E9sol%E9, ce pseudo n\'existe pas !'))</script>"; 
 			}
 			
@@ -30,11 +30,11 @@ include('connexion_SQL.php');
 			$_SESSION['loginOK'] = true;
 			
 			
-			include('index2.php');
+			include('index.php');
 			}
 			
 		else {
-			include('index2.php');
+			include('index.php');
 			echo "<script>alert(unescape('Mot de passe Incorect !'))</script>"; 
 			}
 		
@@ -44,7 +44,7 @@ include('connexion_SQL.php');
 	}
 	
 	else {
-		include('index2.php');
+		include('index.php');
 		echo "<script>alert(unescape('Une erreur est survenue, merci de r%E9essayer !'))</script>"; 
 		}	
 	
@@ -53,6 +53,6 @@ include('connexion_SQL.php');
 
 
 ?>
-</HTML>
+
 
 

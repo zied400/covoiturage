@@ -2,6 +2,8 @@
 session_start();
 ?>
 <html>
+<link rel="stylesheet" type="text/css" href="style.css" />
+
 <table width="940" border="0" align="left" >
 	<TR>
 		<TD width="150" valign="top">

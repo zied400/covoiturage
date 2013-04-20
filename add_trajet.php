@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 $modif="";
 if(isset($_GET['modif'])){
 $modif=$_GET['modif'];
@@ -20,8 +20,6 @@ if ($ponct== 1) {
 	$type_trajet="ponctuel";
 }
 ?>
-
-<html>
 
 <script type="text/javascript" language="Javascript" >
 <!--
@@ -85,20 +83,9 @@ function verification()
 //-->
 </script>
 
-
-<table width="940" border="0" align="left" >
-	<TR>
-		<TD width="150" valign="top">
-			<?php include('frame_gauche.php'); ?>
-		</TD>
-
-		<TD width="770">
+ 
 <?php
-	
-if ($_SESSION['loginOK'] == true) {
-	include('menus_session.htm');
-	echo "</br>";	
-}
+
 	
 		
 		$ville1="";
@@ -110,7 +97,7 @@ if ($_SESSION['loginOK'] == true) {
 		
 		
 
-if ($_SESSION['loginOK'] == true AND $modif == 1) {
+if ($modif == 1) {
 	
 	$id=$_SESSION['id'];
 	
@@ -154,7 +141,7 @@ else {
 
 <p><strong>Mon trajet:</strong></p>
 
-<table width="750" border="0">
+<table  border="0">
   <tr>
    
    <td width="240" height="24"><div align="right">Type de trajet: </div>
@@ -168,7 +155,7 @@ else {
 			echo "checked";
 		}
 		?>
-		onclick="document.location.href='saisir_trajet.php?ponct=1'"> Ponctuel
+		onclick="document.location.href='index.php?add_trajet&ponct=1'"> Ponctuel
 		
 		</BR>
 		<INPUT type=radio name="type_trajet" value="régulier" 
@@ -179,7 +166,7 @@ else {
 		}
 		?>
 		
-		onclick="document.location.href='saisir_trajet.php?ponct=2'"> Régulier </br>
+		onclick="document.location.href='index.php?add_trajet&ponct=2'"> Régulier </br>
 	
 	</td>
 
@@ -207,21 +194,21 @@ else {
 
 </br>
 
-<table width="750" border="0">
+<table  border="0">
   <tr>
     <td width="240" height="24"><div align="right">Ville de d&eacute;part * </div></td>
     <td width="500"><input type="text" name="ville1" <?php echo "value=\"$ville1\""; ?>></td>
   </tr>
 </table>
 
-<table width="750" border="0">
+<table  border="0">
   <tr>
     <td width="240" height="24"><div align="right">Ville d'arriv&eacute;e * </div></td>
     <td width="500"><input type="text" name="ville2" <?php echo "value=\"$ville2\""; ?>></td>
   </tr>
 </table>
 
-<table width="750" border="0">
+<table  border="0">
   <tr>
     <td width="240" height="24"><div align="right">Heure de d&eacute;part * </div></td>
     <td width="500"><input type="TIME" name="heure" <?php echo "value=\"$heure\""; ?> onFocus="javascript:this.value=''"> hh:mm ou "variable"</td>
@@ -235,7 +222,7 @@ else {
 	<?php 
 	if ($type_trajet == "ponctuel"){ ?>
 	
-	<table width="750" border="0">
+	<table  border="0">
 		<tr>
 		<td width="240" height="24">
 		<div align="right">Trajet de retour (facultatif)&nbsp;</div>
@@ -244,7 +231,7 @@ else {
 		</table>
 	<?php } ?>
 	
-<table width="750" border="0">
+<table  border="0">
   <tr>
     <td width="240" height="24">
 	<div align="right">D&eacute;part pour le retour (facultatif)&nbsp;</div>
@@ -255,7 +242,7 @@ else {
 <?php } ?>
 
 </br>
-<table width="750" border="0">
+<table  border="0">
   <tr>
     <td width="240" height="24"><div align="right">Commentaires</div></td>
     <td width="500"><TEXTAREA rows="4" cols="40" name="coment"><?php echo "$coment"; ?></TEXTAREA></td>
@@ -265,7 +252,28 @@ else {
 <p>* champs obligatoires</p>
 
   <p>
-   	  <input name="soumettre" type="submit" value="Valider" >
+   	    <input type="submit" name="soumettre"  class="styled-button-12" value="Valider" /> 
+<style type="text/css">
+.styled-button-12 {
+	-webkit-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+	-moz-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+	box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+	border-bottom-color:#333;
+	border:1px solid #61c4ea;
+	background-color:#7cceee;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	color:#333;
+	font-family:'Verdana',Arial,sans-serif;
+	font-size:14px;
+	text-shadow:#b2e2f5 0 1px 0;
+	padding:5px;
+	 cursor: pointer;
+	 float:right;
+	 width:100px;
+}
+</style>
   
 
 <?php
@@ -275,12 +283,6 @@ if ($modif == "1") {
 ?>
 
 </p>
-</blockquote>
 </form>
 
-</TD>
-</TR>
 
-</table>
-
-</html>

@@ -32,7 +32,7 @@ body {
 	<tr>
 		<td>
 		<?php
-	  		if (isset($_POST['loginOK']) && $_SESSION['loginOK'] == true) {
+	  		if (isset($_SESSION['loginOK'])) {
 				include('menus_session.htm');
 				echo "<BR><HR>";	
 				
