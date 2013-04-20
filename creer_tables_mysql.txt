@@ -1,0 +1,25 @@
+CREATE TABLE IF NOT EXISTS `conducteurs` (
+  `ID` int(11) NOT NULL auto_increment,
+  `pseudo` text NOT NULL,
+  `mail` text NOT NULL,
+  `pwd` text NOT NULL,
+  `nom` text NOT NULL,
+  `prenom` text NOT NULL,
+  `tel` text NOT NULL,
+  PRIMARY KEY  (`ID`)
+
+) ;
+
+CREATE TABLE IF NOT EXISTS `trajets` (
+  `num_trajet` int(11) NOT NULL auto_increment,
+  `ID` int(11) NOT NULL default '0',
+  `ville1` text NOT NULL,
+  `ville2` text NOT NULL,
+  `heure` text NOT NULL,
+  `type_trajet` text NOT NULL,
+  `date_trajet` text NOT NULL,
+  `coment` text NOT NULL,
+  `date` date NOT NULL default '0000-00-00',
+  PRIMARY KEY  (`num_trajet`)
+) ;
+
