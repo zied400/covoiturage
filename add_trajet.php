@@ -129,10 +129,10 @@ if ($modif == 1) {
 
 <?php
 if ($modif == 1) { 
-	echo"enregistre_trajet.php?modif=1&num_traj=$trajet";
+	echo"index.php?enregistre_trajet&modif=1&num_traj=$trajet";
 }
 else { 
-	echo "enregistre_trajet.php"; 
+	echo "index.php?enregistre_trajet"; 
 }
 ?>
 
@@ -193,7 +193,7 @@ else {
 </table>
 
 </br>
-
+<input type='hidden' name='enregistre_trajet'/>
 <table  border="0">
   <tr>
     <td width="240" height="24"><div align="right">Ville de d&eacute;part * </div></td>

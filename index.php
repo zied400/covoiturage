@@ -27,7 +27,7 @@ if(!isset($_SESSION))
 <div class="menu">
 
 <ul>
-<li><a href="index.php">Acceuil</a></li>
+<li><a href="index.php?accueil">Acceuil</a></li>
 <?php
 if (isset($_SESSION['loginOK'])) {
 ?>
@@ -124,7 +124,7 @@ background:#f22096;
 				?>
 		
 				
-		<form action="verif_login.php" method="post" class="form" >
+		<form action="verif_login.php?accueil" method="post" class="form" >
 		 <div class="form_row">
 		 <label class="left">User :</label><input type="text" name="pseudo" size="18"
 		value=" <?php if(isset($_COOKIE['pseudo'])){echo $_COOKIE['pseudo'] ;} ?>"
@@ -217,6 +217,43 @@ include('edit_profile.php');
 </div>
 <?php } ?>
 
+			  	<?php
+if(isset($_GET['detail_projet'])){ ?>	
+		
+		   		<div class="column4">
+        
+        <div class="title">D&eacute;tails trajets</div> 
+		<?php
+include('contact.php');
+		?>
+</div>
+<?php } ?>
+
+			  	<?php
+if(isset($_GET['supprimer_trajet'])){ ?>	
+		
+		   		<div class="column4">
+        
+		<?php
+include('supprimer_trajet.php');
+		?>
+</div>
+<?php } ?>
+
+
+
+			  	<?php
+if(isset($_GET['edit_trajet'])){ ?>	
+		
+		   		<div class="column4">
+        
+        <div class="title">Modifier un trajet </div> 
+		<?php
+include('edit_trajet.php');
+		?>
+</div>
+<?php } ?>
+
 
 
 			  	<?php
@@ -241,27 +278,25 @@ if(isset($_GET['add_trajet'])){ ?>
 		<?php
 include('add_trajet.php');
 		?>
-		
-		
-
 </div>
 <?php } ?>
 
 
 			  	<?php
-if(isset($_GET['edit_trajet'])){ ?>	
+if(isset($_GET['enregistre_trajet'])){ ?>	
 		
 		   		<div class="column4">
         
-        <div class="title">Modifier un trajet </div> 
 		<?php
-include('edit_trajet.php');
+include('enregistre_trajet.php');
 		?>
-		
-		
-
 </div>
 <?php } ?>
+
+
+
+
+
 
    		<div class="column4">
         
@@ -384,7 +419,7 @@ if(isset($_POST['rech'])){ ?>
 </div>
 
 <?php
-if(!isset($_POST['rech'])){ ?>	
+if(!isset($_POST['rech']) && isset($_GET['accueil'])){ ?>	
 		
 		   		<div class="column4">
         

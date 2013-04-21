@@ -1,7 +1,4 @@
 <?php
-session_start();
-echo "</html>";
-
 $num=$_GET['num_trajet'];
 $id_session=$_SESSION['id'];
 
@@ -18,26 +15,27 @@ if ($_SESSION['loginOK'] == true) {
 
 	if ($id_trajet == $id_session) {
 		mysql_query("DELETE FROM trajets WHERE num_trajet='$num'");
+		echo "</BR>";
+		echo "<h3 style='color:green'>Trajet supprimé avec succes !</h3>";
 	}
 	
 	// si le numero de trajet ne correspond pas à un trajet de l'utilisateur connecté:
 	else {
-		echo "Une erreur est survenue";
-		echo "</BR></bR>";
-		echo "<a href=\"index2.php\">Retour à l'accueil</a>";
+		echo "<h3 style='color:red'>Une erreur est survenue</h3>";
+		echo "</BR>";
+		echo "<a href=\"index.php?gestion_mes_trajets\">Retour à l'accueil</a>";
 	}
 
 }
 
 else {
-	echo "merci de vous indentifier pour accèder à cette page";
+	echo "Merci de vous indentifier pour accèder à cette page";
 	}
 
 mysql_close();
-include('trajets_conducteur.php');
 
 ?>
-</html>
+
 
 
 

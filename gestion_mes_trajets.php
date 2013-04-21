@@ -1,3 +1,30 @@
+ 
+<style type="text/css">
+.styled-button-122 {
+	-webkit-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+	-moz-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+	box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+	border-bottom-color:#333;
+	border:1px solid #61c4ea;
+	background-color:#7cceee;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	color:#333;
+	font-family:'Verdana',Arial,sans-serif;
+	font-size:14px;
+	text-shadow:#b2e2f5 0 1px 0;
+	padding:5px;
+	 cursor: pointer;
+	 float:left;
+	 width:250px;
+}
+.styled-button-122:hover{
+background-color:#7ddeee;
+}
+</style>
+  
+
 
 <?php
 
@@ -6,7 +33,7 @@
 	echo $_SESSION['pseudo'];
 	
 	echo"</BR></BR>";
-	echo "<a href=\"index.php?add_trajet\">Saisir un nouveau trajet</a>";
+	echo "<a href=\"index.php?add_trajet\" class='styled-button-122'>Saisir un nouveau trajet</a>";
 	
 	echo "</br></br></br>";
 
@@ -54,8 +81,8 @@
 			}
 			echo "</div></TD>";
 			
-			echo "<TD><div align=\"center\"><a href =\"index.php?edit_trajet&modif=1&num_trajet=$num_trajet\"><img src='images/adminicons/edit.png' width='24' height='24' border='0'></a></div></TD>";	
-			echo "<TD><div align=\"center\"><a href =\"supprimer_trajet.php?num_trajet=$num_trajet\"><img src='images/adminicons/delete.png' width='24' height='24' border='0'></a></div></TD>";
+			echo "<TD><div align=\"center\"><a href =\"index.php?gestion_mes_trajets&edit_trajet&modif=1&num_trajet=$num_trajet\"><img src='images/adminicons/edit.png' width='24' height='24' border='0'></a></div></TD>";	
+			echo "<TD><div align=\"center\"><a href =\"index.php?gestion_mes_trajets&supprimer_trajet&num_trajet=$num_trajet\"><img src='images/adminicons/delete.png' width='24' height='24' border='0'></a></div></TD>";
 			echo "</TR>";
 	
 		}

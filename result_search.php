@@ -101,7 +101,7 @@ echo "<BR>";
 				}
 				echo " </TD>";
 				
-				echo "<TD>  <a href=\"contact.php?num_trajet=$num_T\" > Voir les details</a></TD>";
+				echo "<TD>  <a href=\"index.php?detail_projet&num_trajet=$num_T\" > Voir les details</a></TD>";
 				echo "</TR>";
 				$i++;
 				}

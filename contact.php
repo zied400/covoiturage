@@ -1,22 +1,9 @@
-<?php
-session_start();
-?>
 
-<html>
-<table width="930" border="0" align="left" >
-	<TR>
-		<TD width="160" valign="top">
-			<?php include('frame_gauche.php'); ?>
-		</TD>
-
-		<TD width="770" valign="top">
 		
 <?php
 
 	if ($_SESSION['loginOK'] == true)
 		{		
-		include('menus_session.htm');
-		echo "</br>";
 		
 		$num=$_GET['num_trajet'];
 		
@@ -106,10 +93,3 @@ session_start();
 		}
 	
 	?>
-
-</TD>
-</TR>
-
-</table>
-
-</html>

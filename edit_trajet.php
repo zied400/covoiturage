@@ -130,10 +130,10 @@ if ($_SESSION['loginOK'] == true AND $modif == 1) {
 
 <?php
 if ($modif == 1) { 
-	echo"enregistre_trajet.php?modif=1&num_traj=$trajet";
+	echo"index.php?enregistre_trajet&modif=1&num_traj=$trajet";
 }
 else { 
-	echo "enregistre_trajet.php"; 
+	echo "index.php?enregistre_trajet"; 
 }
 ?>
 
@@ -258,7 +258,7 @@ else {
 
 <?php
 if ($modif == "1") {
-	echo"<input type=\"button\" value=\"Annuler\"  onClick=\"javascript:document.location.href='trajets_conducteur.php'\" >";	
+	echo"<input type=\"button\" value=\"Annuler\"  onClick=\"javascript:document.location.href='index.php?gestion_mes_trajets'\" >";	
 }
 ?>
 
