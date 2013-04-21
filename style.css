@@ -195,12 +195,14 @@ width:320px;
 float:right;
 margin:0px;
 padding:10px 3px 10px 5px;
+
 }
 .column4{
 width:690px;
 float:right;
-margin:0px;
+
 padding:10px 0px 10px 5px;
+margin-right: 3px;
 }
 .left_box{
 width:257px;
@@ -567,7 +569,9 @@ Table Style - This is what you want
 	font-size:12px;
 	text-shadow: 1px 1px 0px #fff;
 	background:#eaebec;
-	margin:20px;
+	margin-top: 20px;
+	margin-left: auto;
+margin-right: auto;
 	border:#ccc 1px solid;
 
 	-moz-border-radius:3px;

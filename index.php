@@ -112,6 +112,9 @@ if (isset($_SESSION['loginOK'])) {
 	border:1px solid #ae4553;
 	 cursor: pointer;
 }
+.styled-button-6:hover{
+background:#f22096;
+}
 </style>
 				<?php
 				}
@@ -330,7 +333,37 @@ $heure_rech = "tous";
 		<OPTION <?php if ($heure_rech == "23:30") {echo"selected";} ?> VALUE="23:30">23:30</OPTION>
 		</SELECT>
 		&nbsp;&nbsp;
-		<INPUT TYPE="submit" ACTION="index.php" VALUE="Valider" METHOD="post" >
+	</br>		</br>	
+		<p>
+   	    <input type="submit" name="soumettre" class="styled-button-12" value="Rechercher"> 
+<style type="text/css">
+.styled-button-12 {
+	-webkit-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+	-moz-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+	box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+	border-bottom-color:#333;
+	border:1px solid #61c4ea;
+	background-color:#7cceee;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	color:#333;
+	font-family:'Verdana',Arial,sans-serif;
+	font-size:14px;
+	text-shadow:#b2e2f5 0 1px 0;
+	padding:5px;
+	 cursor: pointer;
+	 float:right;
+	 width:100px;
+}
+.styled-button-12:hover{
+background-color:#7ddeee;
+}
+</style>
+  
+
+
+</p>
       	</form>
 
 
