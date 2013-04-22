@@ -56,10 +56,11 @@ unset($donnees[$cle]);
 * de la date et de l'heure de l'exécution.
 */
 $donnees[$argument_requêtes]++;
-if( !$donnees[$ip] ) {
+
+/*if( !$donnees[$ip] ) {
 $donnees[$argument_visites]++;
 $donnees[$ip] = $time;
-}
+}*/
 
 /*
 * On effectue un petit report de variable

@@ -97,7 +97,7 @@ echo "<BR>";
 								
 				echo "<TD> $type_trajet";
 				if ($type_trajet == "ponctuel") {
-					echo ": ".$date_trajet;
+					$type_trajet;
 				}
 				echo " </TD>";
 				

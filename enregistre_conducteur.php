@@ -13,7 +13,7 @@ session_start();
 	$pseudo=mysql_real_escape_string(htmlspecialchars($_POST['pseudo']));
 	$mail=mysql_real_escape_string(htmlspecialchars($_POST['mail']));
 	$pwd=mysql_real_escape_string(htmlspecialchars($_POST['pwd']));
-	$heure=mysql_real_escape_string(htmlspecialchars($_POST['heure']));
+	//$heure=mysql_real_escape_string(htmlspecialchars($_POST['heure']));
 	
 	$nom=mysql_real_escape_string(htmlspecialchars($_POST['nom']));
 	if ($nom == "nom") { $nom=""; }
@@ -22,7 +22,7 @@ session_start();
 	if ($prenom == "prenom") { $prenom=""; }
 	
 	$tel=mysql_real_escape_string(htmlspecialchars($_POST['tel']));
-	$coment=nl2br(mysql_real_escape_string(htmlspecialchars($_POST['coment'])));
+	//$coment=nl2br(mysql_real_escape_string(htmlspecialchars($_POST['coment'])));
 		
 	$date=date("Y-m-d");
 	

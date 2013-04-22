@@ -49,7 +49,9 @@
 		echo "</BR></BR> Date de saisie :&nbsp;";
 		echo $date; 
 		echo "<br /><br />D&eacute;part &agrave; : ";
-		echo "<strong>";echo $heure; echo "</strong>";
+		echo "<strong>";
+		echo $heure; 
+		echo "</strong>";
 		echo "<br /><br /> Conducteur : ";
 		echo "<strong>";
 		echo $nom; 
@@ -58,9 +60,13 @@
 		echo "</strong>";			
 		echo "<br /><br />";
 		echo "T&eacute;l&eacute;phone : ";
-		echo "<strong>";echo $tel; echo "</strong>";
+		echo "<strong>";
+		echo $tel; 
+		echo "</strong>";
 		echo "<br /><br />Commentaires : ";
-		echo "<strong>";echo $coment;echo "</strong>";
+		echo "<strong>";
+		echo $coment;
+		echo "</strong>";
 		
 		
 		mysql_close();
