@@ -73,10 +73,10 @@ return true
 
 <?php
 	
-if ($_SESSION['loginOK'] == true) {
+/*if ($_SESSION['loginOK'] == true) {
 	include('menus_session.htm');
 	echo "</br>";	
-}
+}*/
 	
 If (isset($_GET['modif']) && $_GET['modif']!= 2) {
 
@@ -89,7 +89,7 @@ $modif=$_GET['modif'];
 		$prenom="prenom";
 	}
 
-if ($_SESSION['loginOK'] == true AND $modif == 1) {
+/*if ($_SESSION['loginOK'] == true AND $modif == 1) {
 	
 	$id=$_SESSION['id'];
 		
@@ -108,7 +108,7 @@ if ($_SESSION['loginOK'] == true AND $modif == 1) {
 		
 	mysql_close();
 	}
-	
+*/	
 	else {
 		//$modif = "";
 		}

@@ -7,9 +7,31 @@ $heure_rech = "tous";
 		<form action="resultat_recherche.php" method=post>
 		<STRONG>Rechercher un trajet :</strong>
 		&nbsp;depart :&nbsp;
-		<input type="text" name="ville1" value="<?php echo $depart ?>" onFocus="javascript:this.value=''" size="15">
+		<input type="hidden" name="rech" />
+		<?php
+			$ville1 = "";
+		?>
+		<SELECT name="ville1">		
+			<OPTION <?php if ($ville1 == "") {echo"selected";} ?> VALUE=""></OPTION>
+			<OPTION <?php if ($ville1 == "Belfort") {echo"selected";} ?> VALUE="Belfort">Belfort</OPTION>
+			<OPTION <?php if ($ville1 == "Sevenans") {echo"selected";} ?> VALUE="Sevenans">Sevenans</OPTION>
+			<OPTION <?php if ($ville1 == "Montbeliard") {echo"selected";} ?> VALUE="Montbeliard">Montbeliard</OPTION>
+		</SELECT>
+		
+		<!-- <input type="text" name="ville1" value="<?php echo $ville1 ?>" onFocus="javascript:this.value=''" size="15"> -->
 		arrivée :&nbsp;
-		<input type="text" name="ville2" value="<?php echo $arrivee ?>" onFocus="javascript:this.value=''" size="15">
+		<input type="hidden" name="rech" />
+		<?php
+			$ville2 = "";
+		?>
+		<SELECT name="ville2">		
+			<OPTION <?php if ($ville2 == "") {echo"selected";} ?> VALUE=""></OPTION>
+			<OPTION <?php if ($ville2 == "Belfort") {echo"selected";} ?> VALUE="Belfort">Belfort</OPTION>
+			<OPTION <?php if ($ville2 == "Sevenans") {echo"selected";} ?> VALUE="Sevenans">Sevenans</OPTION>
+			<OPTION <?php if ($ville2 == "Montbeliard") {echo"selected";} ?> VALUE="Montbeliard">Montbeliard</OPTION>
+		</SELECT>
+		
+		<!-- <input type="text" name="ville2" value="<?php echo $ville2 ?>" onFocus="javascript:this.value=''" size="15" -->
 		&nbsp;&nbsp;horaire :&nbsp;
 		
 		<SELECT name="heure">

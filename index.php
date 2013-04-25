@@ -303,12 +303,34 @@ include('enregistre_trajet.php');
         <div class="title">Rechercher un trajet </div> 
         	      <form action="index.php" method="post">
 				  </br>
-		<STRONG>Veuillez saisir les informations n&eacute;cessaire </strong></br>
+		<STRONG>Veuillez saisir les informations n&eacute;cessaires </strong></br>
 		D&eacute;part:
 		<input type="hidden" name="rech" />
-		<input type="text" name="ville1" value="" onFocus="javascript:this.value=''" size="15">
+		<?php
+			$ville1 = "";
+		?>
+		<SELECT name="ville1">		
+			<OPTION <?php if ($ville1 == "") {echo"selected";} ?> VALUE=""></OPTION>
+			<OPTION <?php if ($ville1 == "Belfort") {echo"selected";} ?> VALUE="Belfort">Belfort</OPTION>
+			<OPTION <?php if ($ville1 == "Sevenans") {echo"selected";} ?> VALUE="Sevenans">Sevenans</OPTION>
+			<OPTION <?php if ($ville1 == "Montbeliard") {echo"selected";} ?> VALUE="Montbeliard">Montbeliard</OPTION>
+		</SELECT>
+		
+		<!-- <input type="text" name="ville1" value="" onFocus="javascript:this.value=''" size="15"> -->
+		
 		Arriv&eacute;e 
-		<input type="text" name="ville2" value="" onFocus="javascript:this.value=''" size="15">
+		<input type="hidden" name="rech" />
+		<?php
+			$ville2 = "";
+		?>
+		<SELECT name="ville2">		
+			<OPTION <?php if ($ville2 == "") {echo"selected";} ?> VALUE=""></OPTION>
+			<OPTION <?php if ($ville2 == "Belfort") {echo"selected";} ?> VALUE="Belfort">Belfort</OPTION>
+			<OPTION <?php if ($ville2 == "Sevenans") {echo"selected";} ?> VALUE="Sevenans">Sevenans</OPTION>
+			<OPTION <?php if ($ville2 == "Montbeliard") {echo"selected";} ?> VALUE="Montbeliard">Montbeliard</OPTION>
+		</SELECT>
+		
+		<!-- <input type="text" name="ville2" value="Sevenans" value="Belfort" onFocus="javascript:this.value=''" size="15"> -->
 		Date:
 		<input type="text" name="ville2" value="" onFocus="javascript:this.value=''" size="15">
 		Horaire 
