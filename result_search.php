@@ -16,16 +16,15 @@ if(isset($_POST['heure'])){	$heure=mysql_real_escape_string(htmlspecialchars($_P
 
 	
 	
-	if ($ville1 == "") {$ville1="peu importe";}
+	if ($ville1 == "") {$ville1="peu importe";}						
 	if ($ville2 == "") {$ville2="peu importe";}
 	
 	$depart=$ville1;
 	$arrivee=$ville2;
 	$heure_rech=$heure;
 	
-
 	
-	if ($ville1 == "peu importe") {$ville1="";}
+	if ($ville1 == "peu importe") {$ville1="";}						
 	if ($ville2 == "peu importe") {$ville2="";}
 
 	

@@ -197,21 +197,99 @@ else {
 <table  border="0">
   <tr>
     <td width="240" height="24"><div align="right">Ville de d&eacute;part * </div></td>
-    <td width="500"><input type="text" name="ville1" <?php echo "value=\"$ville1\""; ?>></td>
+	<td width="500">
+		<?php
+			$ville1 = "";
+		?>
+		<SELECT name="ville1">		
+			<OPTION <?php if ($ville1 == "") {echo"selected";} ?> VALUE=""></OPTION>
+			<OPTION <?php if ($ville1 == "Belfort") {echo"selected";} ?> VALUE="Belfort">Belfort</OPTION>
+			<OPTION <?php if ($ville1 == "Sevenans") {echo"selected";} ?> VALUE="Sevenans">Sevenans</OPTION>
+			<OPTION <?php if ($ville1 == "Montbeliard") {echo"selected";} ?> VALUE="Montbeliard">Montbeliard</OPTION>
+		</SELECT>
+	</td>
+   <!--  <input type="text" name="ville1" <?php echo "value=\"$ville1\""; ?>> -->
   </tr>
 </table>
 
 <table  border="0">
   <tr>
     <td width="240" height="24"><div align="right">Ville d'arriv&eacute;e * </div></td>
-    <td width="500"><input type="text" name="ville2" <?php echo "value=\"$ville2\""; ?>></td>
+	<td width="500">
+		<?php
+			$ville2 = "";
+		?>
+		<SELECT name="ville2">		
+			<OPTION <?php if ($ville2 == "") {echo"selected";} ?> VALUE=""></OPTION>
+			<OPTION <?php if ($ville2 == "Belfort") {echo"selected";} ?> VALUE="Belfort">Belfort</OPTION>
+			<OPTION <?php if ($ville2 == "Sevenans") {echo"selected";} ?> VALUE="Sevenans">Sevenans</OPTION>
+			<OPTION <?php if ($ville2 == "Montbeliard") {echo"selected";} ?> VALUE="Montbeliard">Montbeliard</OPTION>
+		</SELECT>
+	</td>
+    <!-- <td width="500"><input type="text" name="ville2" <?php echo "value=\"$ville2\""; ?>></td> -->
   </tr>
 </table>
 
 <table  border="0">
   <tr>
     <td width="240" height="24"><div align="right">Heure de d&eacute;part * </div></td>
-    <td width="500"><input type="TIME" name="heure" <?php echo "value=\"$heure\""; ?> onFocus="javascript:this.value=''"> hh:mm ou "variable"</td>
+    <td width="500">
+		<?php
+			$heure_rech = "tous";
+		?>
+		<SELECT name="heure">
+		
+		<OPTION <?php if ($heure_rech == "00:00") {echo"selected";} ?> VALUE="00:00">00:00</OPTION>
+		<OPTION <?php if ($heure_rech == "00:30") {echo"selected";} ?> VALUE="00:30">00:30</OPTION>
+		<OPTION <?php if ($heure_rech == "01:00") {echo"selected";} ?> VALUE="01:00">01:00</OPTION>
+		<OPTION <?php if ($heure_rech == "01:30") {echo"selected";} ?> VALUE="01:30">01:30</OPTION>
+		<OPTION <?php if ($heure_rech == "02:00") {echo"selected";} ?> VALUE="02:00">02:00</OPTION>
+		<OPTION <?php if ($heure_rech == "02:30") {echo"selected";} ?> VALUE="02:30">02:30</OPTION>
+		<OPTION <?php if ($heure_rech == "03:00") {echo"selected";} ?> VALUE="03:00">03:00</OPTION>
+		<OPTION <?php if ($heure_rech == "03:30") {echo"selected";} ?> VALUE="03:30">03:30</OPTION>
+		<OPTION <?php if ($heure_rech == "04:00") {echo"selected";} ?> VALUE="04:00">04:00</OPTION>
+		<OPTION <?php if ($heure_rech == "04:30") {echo"selected";} ?> VALUE="04:30">04:30</OPTION>
+		<OPTION <?php if ($heure_rech == "05:00") {echo"selected";} ?> VALUE="05:00">05:00</OPTION>
+		<OPTION <?php if ($heure_rech == "05:30") {echo"selected";} ?> VALUE="05:30">05:30</OPTION>
+		<OPTION <?php if ($heure_rech == "06:00") {echo"selected";} ?> VALUE="06:00">06:00</OPTION>
+		<OPTION <?php if ($heure_rech == "06:30") {echo"selected";} ?> VALUE="06:30">06:30</OPTION>
+		<OPTION <?php if ($heure_rech == "07:00") {echo"selected";} ?> VALUE="07:00">07:00</OPTION>
+		<OPTION <?php if ($heure_rech == "07:30") {echo"selected";} ?> VALUE="07:30">07:30</OPTION>
+		<OPTION <?php if ($heure_rech == "08:00") {echo"selected";} ?> VALUE="08:00">08:00</OPTION>
+		<OPTION <?php if ($heure_rech == "08:30") {echo"selected";} ?> VALUE="08:30">08:30</OPTION>
+		<OPTION <?php if ($heure_rech == "09:00") {echo"selected";} ?> VALUE="09:00">09:00</OPTION>
+		<OPTION <?php if ($heure_rech == "09:30") {echo"selected";} ?> VALUE="09:30">09:30</OPTION>
+		<OPTION <?php if ($heure_rech == "10:00") {echo"selected";} ?> VALUE="10:00">10:00</OPTION>
+		<OPTION <?php if ($heure_rech == "10:30") {echo"selected";} ?> VALUE="10:30">10:30</OPTION>
+		<OPTION <?php if ($heure_rech == "11:00") {echo"selected";} ?> VALUE="11:00">11:00</OPTION>
+		<OPTION <?php if ($heure_rech == "11:30") {echo"selected";} ?> VALUE="11:30">11:30</OPTION>
+		<OPTION <?php if ($heure_rech == "12:00") {echo"selected";} ?> VALUE="12:00">12:00</OPTION>
+		<OPTION <?php if ($heure_rech == "12:30") {echo"selected";} ?> VALUE="12:30">12:30</OPTION>
+		<OPTION <?php if ($heure_rech == "13:00") {echo"selected";} ?> VALUE="13:00">13:00</OPTION>
+		<OPTION <?php if ($heure_rech == "13:30") {echo"selected";} ?> VALUE="13:30">13:30</OPTION>
+		<OPTION <?php if ($heure_rech == "14:00") {echo"selected";} ?> VALUE="14:00">14:00</OPTION>
+		<OPTION <?php if ($heure_rech == "14:30") {echo"selected";} ?> VALUE="14:30">14:30</OPTION>
+		<OPTION <?php if ($heure_rech == "15:00") {echo"selected";} ?> VALUE="15:00">15:00</OPTION>
+		<OPTION <?php if ($heure_rech == "15:30") {echo"selected";} ?> VALUE="15:30">15:30</OPTION>
+		<OPTION <?php if ($heure_rech == "16:00") {echo"selected";} ?> VALUE="16:00">16:00</OPTION>
+		<OPTION <?php if ($heure_rech == "16:30") {echo"selected";} ?> VALUE="16:30">16:30</OPTION>
+		<OPTION <?php if ($heure_rech == "17:00") {echo"selected";} ?> VALUE="17:00">17:00</OPTION>
+		<OPTION <?php if ($heure_rech == "17:30") {echo"selected";} ?> VALUE="17:30">17:30</OPTION>
+		<OPTION <?php if ($heure_rech == "18:00") {echo"selected";} ?> VALUE="18:00">18:00</OPTION>
+		<OPTION <?php if ($heure_rech == "18:30") {echo"selected";} ?> VALUE="18:30">18:30</OPTION>
+		<OPTION <?php if ($heure_rech == "19:00") {echo"selected";} ?> VALUE="19:00">19:00</OPTION>
+		<OPTION <?php if ($heure_rech == "19:30") {echo"selected";} ?> VALUE="19:30">19:30</OPTION>
+		<OPTION <?php if ($heure_rech == "20:00") {echo"selected";} ?> VALUE="20:00">20:00</OPTION>
+		<OPTION <?php if ($heure_rech == "20:30") {echo"selected";} ?> VALUE="20:30">20:30</OPTION>
+		<OPTION <?php if ($heure_rech == "21:00") {echo"selected";} ?> VALUE="21:00">21:00</OPTION>
+		<OPTION <?php if ($heure_rech == "21:30") {echo"selected";} ?> VALUE="11:30">21:30</OPTION>
+		<OPTION <?php if ($heure_rech == "22:00") {echo"selected";} ?> VALUE="22:00">22:00</OPTION>
+		<OPTION <?php if ($heure_rech == "22:30") {echo"selected";} ?> VALUE="22:30">22:30</OPTION>
+		<OPTION <?php if ($heure_rech == "23:00") {echo"selected";} ?> VALUE="23:00">23:00</OPTION>
+		<OPTION <?php if ($heure_rech == "23:30") {echo"selected";} ?> VALUE="23:30">23:30</OPTION>
+		</SELECT>
+		</td>
+		<!-- <input type="TIME" name="heure" <?php echo "value=\"$heure\""; ?> onFocus="javascript:this.value=''"> hh:mm ou "variable"</td> -->
 	
   </tr>
 </table>
@@ -228,18 +306,19 @@ else {
 		<div align="right">Trajet de retour (facultatif)&nbsp;</div>
 		<td width="500"><INPUT type="text" name="date_trajet_retour" value="jj/mm/aa" onFocus="javascript:this.value=''"> jj/mm/aa</td>
 		</tr>
-		</table>
+	</table>
 	<?php } ?>
 	
-<table  border="0">
-  <tr>
-    <td width="240" height="24">
-	<div align="right">D&eacute;part pour le retour (facultatif)&nbsp;</div>
-    <td width="500"><input type="TIME" name="heure_retour" value="hh:mm" onFocus="javascript:this.value=''"> hh:mm ou "variable"</td>
-  </tr>
-</table>
+	<table  border="0">
+		<tr>
+		<td width="240" height="24">
+		<div align="right">D&eacute;part pour le retour (facultatif)&nbsp;</div>
+		<td width="500"><input type="TIME" name="heure_retour" value="hh:mm" onFocus="javascript:this.value=''"> hh:mm ou "variable"</td>
+		</tr>
+	</table>
 		
 <?php } ?>
+
 
 </br>
 <table  border="0">
