@@ -54,6 +54,13 @@ function verification()
    alert("Veuillez saisir une ville d'arrivée svp");
    document.formulaire.ville2.focus();
    return false;
+  
+  }
+   else if(document.formulaire.ville1.value == document.formulaire.ville2.value) {
+   alert("Vous avez saisi la meme ville pour le départ et l'arrivée !");
+   document.formulaire.ville2.focus();
+   return false;
+  
   } 
   else if(document.formulaire.heure.value == "") {
    alert("Veuillez saisir votre heure de depart svp");
@@ -83,25 +90,18 @@ function verification()
 //-->
 </script>
 
-
+ 
 <?php
+	$ville1="";
+	$ville2="";
+	$heure="hh:mm";
+	$date_trajet="";
+	$coment="";	
 	
-
-	
-		
-		$ville1="";
-		$ville2="";
-		$heure="hh:mm";
-		$date_trajet="jj/mm/aa";
-		$coment="";
-		
-		
-		
 
 if ($_SESSION['loginOK'] == true AND $modif == 1) {
 	
 	$id=$_SESSION['id'];
-	
 		
 	include('connexion_SQL.php');
 		
@@ -113,6 +113,7 @@ if ($_SESSION['loginOK'] == true AND $modif == 1) {
 		$heure=$donnees['heure'];
 		$type_trajet=$donnees['type_trajet'];
 		$date_trajet=$donnees['date_trajet'];
+		$nbr_places=$donnees['nbr_places'];
 		$coment=$donnees['coment'];
 		}
 		
@@ -126,18 +127,7 @@ if ($_SESSION['loginOK'] == true AND $modif == 1) {
 		?>
 
 			
-<form name="formulaire" action="
-
-<?php
-if ($modif == 1) { 
-	echo"index.php?enregistre_trajet&modif=1&num_traj=$trajet";
-}
-else { 
-	echo "index.php?enregistre_trajet"; 
-}
-?>
-
-" method="post" onSubmit="return verification()">
+<form name="formulaire" action="index.php?enregistre_trajet&modif=1&num_traj=<?php echo "$trajet"; ?>" method="post" onSubmit="return verification()">
   
 
 <p><strong>Mon trajet:</strong></p>
@@ -149,25 +139,17 @@ else {
 	</td>
 	
     <td width="100">
-		<INPUT type=radio name="type_trajet" value="ponctuel" 
-		
-		<?php 
-		if ($type_trajet == "ponctuel") {
-			echo "checked";
-		}
-		?>
-		onclick="document.location.href='index.php?edit_trajet&ponct=1'"> Ponctuel
+		<INPUT type="radio" name="type_trajet" value="ponctuel" <?php if ($type_trajet == "ponctuel") {echo "checked";}?> onclick="document.location.href='index.php?add_trajet&ponct=1'"> Ponctuel
 		
 		</BR>
-		<INPUT type=radio name="type_trajet" value="régulier" 
+		<INPUT type="radio" name="type_trajet" value="régulier" 
 		
 		<?php 
 		if ($type_trajet == "régulier" OR $type_trajet == "") {
 			echo "checked"; 
 		}
 		?>
-		
-		onclick="document.location.href='index.php?edit_trajet&ponct=2'"> Régulier </br>
+		onclick="document.location.href='index.php?add_trajet&ponct=2'"> Régulier </br>
 	
 	</td>
 
@@ -179,14 +161,29 @@ else {
 			?>
 			
 			* Date prévue pour ce trajet 
-			<INPUT type="text" name="date_trajet" 
-			
+			<input type="text" id="datepicker1" name="date_trajet"
 			<?php
-			echo "value=\"$date_trajet\" onFocus=\"javascript:this.value=''\">";
-			echo " jj/mm/aa";
-					 
+			echo "value=\"$date_trajet\" onFocus=\"javascript:this.value=''\">";		 
 			} 
 			?>
+			
+			
+		</div>
+	</td>
+	<td>
+		<div align="left">
+			
+			<?php 
+			if ($type_trajet == "ponctuel") {
+			?>
+			
+			* Nombre de places 
+			<input type="text" name="nbr_places"
+			<?php
+			echo "value=\"$nbr_places\" onFocus=\"javascript:this.value=''\">";		 
+			} 
+			?>
+			
 			
 		</div>
 	</td>
@@ -194,18 +191,32 @@ else {
 </table>
 
 </br>
-
+<input type='hidden' name='enregistre_trajet'/>
 <table  border="0">
   <tr>
     <td width="240" height="24"><div align="right">Ville de d&eacute;part * </div></td>
-    <td width="500"><input type="text" name="ville1" <?php echo "value=\"$ville1\""; ?>></td>
+    <td width="500"> 
+		<SELECT name="ville1">		
+			<OPTION <?php if ($ville1 == "") {echo"selected";} ?> VALUE=""></OPTION>
+			<OPTION <?php if ($ville1 == "Belfort") {echo"selected";} ?> VALUE="Belfort">Belfort</OPTION>
+			<OPTION <?php if ($ville1 == "Sevenans") {echo"selected";} ?> VALUE="Sevenans">Sevenans</OPTION>
+			<OPTION <?php if ($ville1 == "Montbeliard") {echo"selected";} ?> VALUE="Montbeliard">Montbeliard</OPTION>
+		</SELECT>
+	</td>
   </tr>
 </table>
 
 <table  border="0">
   <tr>
     <td width="240" height="24"><div align="right">Ville d'arriv&eacute;e * </div></td>
-    <td width="500"><input type="text" name="ville2" <?php echo "value=\"$ville2\""; ?>></td>
+    <td width="500">
+		<SELECT name="ville2">		
+			<OPTION <?php if ($ville2 == "") {echo"selected";} ?> VALUE=""></OPTION>
+			<OPTION <?php if ($ville2 == "Belfort") {echo"selected";} ?> VALUE="Belfort">Belfort</OPTION>
+			<OPTION <?php if ($ville2 == "Sevenans") {echo"selected";} ?> VALUE="Sevenans">Sevenans</OPTION>
+			<OPTION <?php if ($ville2 == "Montbeliard") {echo"selected";} ?> VALUE="Montbeliard">Montbeliard</OPTION>
+		</SELECT>
+	</td>
   </tr>
 </table>
 
@@ -227,7 +238,7 @@ else {
 		<tr>
 		<td width="240" height="24">
 		<div align="right">Trajet de retour (facultatif)&nbsp;</div>
-		<td width="500"><INPUT type="text" name="date_trajet_retour" value="jj/mm/aa" onFocus="javascript:this.value=''"> jj/mm/aa</td>
+		<td width="500"><input type="text" id="A" name="date_trajet_retour"  onFocus="javascript:this.value=''"> </td>
 		</tr>
 		</table>
 	<?php } ?>
@@ -253,12 +264,36 @@ else {
 <p>* champs obligatoires</p>
 
   <p>
-   	  <input name="soumettre" type="submit" value="Valider" >
+   	    <input type="submit" name="soumettre"  class="styled-button-12" value="Valider" /> 
+<style type="text/css">
+.styled-button-12 {
+	-webkit-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+	-moz-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+	box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+	border-bottom-color:#333;
+	border:1px solid #61c4ea;
+	background-color:#7cceee;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	color:#333;
+	font-family:'Verdana',Arial,sans-serif;
+	font-size:14px;
+	text-shadow:#b2e2f5 0 1px 0;
+	padding:5px;
+	 cursor: pointer;
+	 float:right;
+	 width:100px;
+}
+</style>
   
 
 <?php
 if ($modif == "1") {
-	echo"<input type=\"button\" value=\"Annuler\"  onClick=\"javascript:document.location.href='index.php?gestion_mes_trajets'\" >";	
+	echo"<input type=\"button\" value=\"Annuler\"  onClick=\"javascript:document.location.href='trajets_conducteur.php'\" >";	
 }
 ?>
+
+</p>
+</form>
 

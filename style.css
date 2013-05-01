@@ -63,13 +63,13 @@ padding:4px;
 border:1px #CCCCCC solid;
 }
 #main_container{
-width:970px;
+width:990px;
 height:auto;
 margin:auto;
 padding:0px;
 }
 #header{
-width:970px;
+width:1000px;
 height:110px;
 background-color:#dbe2f3;
 margin:auto;
@@ -96,7 +96,7 @@ This stylesheet and the associated (x)html may be modified in any
 way to fit your requirements.
 =================================================================== */
 /* style the outer div to give it width */
-.menu {font-size:11px;padding:0px; float:right; width:700px;}
+.menu {font-size:11px;padding:0px; float:right; width:713px;}
 
 /* remove all the bullets, borders and padding from the default list styling */
 .menu ul {padding:0;margin:0;list-style-type:none; height:28px; background:#267cb2;}
@@ -254,7 +254,7 @@ margin-top:15px;
 .title{
 background-color:#385870;
 text-align:left;
-width:670px;
+width:690px;
 padding:5px 5px 5px 20px;
 color:#FFFFFF;
 font-weight:bold;

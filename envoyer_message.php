@@ -1,13 +1,12 @@
 <?php
  session_start();
  
-if ($_SESSION['loginOK'] == true)
-	{ 
+if ($_SESSION['loginOK'] == true){ 
 	$id_exp=$_GET['id'];
 		
 		include('connexion_SQL.php');
 		
-		$reponse = mysql_query("SELECT * FROM conducteurs WHERE ID='$id_exp'") or die(mysql_error());
+		$reponse = mysql_query("SELECT * FROM conducteurs WHERE id_conducteur='$id_exp'") or die(mysql_error());
 		
 		while ($donnees = mysql_fetch_array($reponse) )
 			{ $mail_dest=$donnees['mail']; }
@@ -21,9 +20,7 @@ if ($_SESSION['loginOK'] == true)
 	     
 		mail("$mail_dest", "$objet", "$message", $headers);
 		echo "le message a été envoyé";
-	}
-	
-else {
+	}else {
 	echo "Merci de vous identifier pour accederà cette page";
 	include('index.php');
 	}

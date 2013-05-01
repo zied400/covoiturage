@@ -1,5 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <?php
+
 if(!isset($_SESSION)) 
     { 
         session_start(); 
@@ -7,9 +8,35 @@ if(!isset($_SESSION))
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8"/> 
 <title>BuildUp Real Estate</title>
-<link rel="stylesheet" type="text/css" href="style.css" />
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<link rel="stylesheet" type="text/css" href="jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="demos.css">
+	<script src="jquery-1.5.1.js"></script>
+	<script src="jquery.ui.core.js"></script>
+	<script src="jquery.ui.widget.js"></script>
+	<script src="jquery.ui.datepicker.js"></script>
+	<script> 
+		$(function() {
+			$( "#datepicker1" ).datepicker({ minDate: -0 });
+			//$( "#De" ).datepicker({ minDate: -0 });
+			var dates = $( "#De, #A" ).datepicker({ 
+					defaultDate: "+1w",
+					changeMonth: false,
+					numberOfMonths: 1,
+					onSelect: function( selectedDate ) {
+						var option = this.id == "De" ? "minDate" : "maxDate",
+							instance = $( this ).data( "datepicker" ),
+							date = $.datepicker.parseDate(
+								instance.settings.dateFormat ||
+								$.datepicker._defaults.dateFormat,
+								selectedDate, instance.settings );
+						dates.not( this ).datepicker( "option", option, date );
+					}
+				});
+		});
+	</script> 
 
 </head>
 <body>
@@ -34,7 +61,7 @@ if (isset($_SESSION['loginOK'])) {
 <li><a href="javascript:document.location.href='index.php?modif=1&edit_profile'">Modifier mes donn&eacute;es</a></li>
 <li ><a href="javascript:document.location.href='index.php?add_trajet'">Saisir un trajet</a></li>
 <li><a href="javascript:document.location.href='index.php?gestion_mes_trajets'">G&eacute;rer mes trajets </a></li>
-<li><a href="">Me d&eacute;sinscrire</a></li>
+<li><a href="javascript:document.location.href='index.php?gestion_mes_reservations'">G&eacute;rer mes rÃ©servations </a></li>
 <?php
 }
 ?>
@@ -82,7 +109,7 @@ if (isset($_SESSION['loginOK'])) {
 							
 				$id_sess=$_SESSION['id'];
 	
-				$reponse = mysql_query("SELECT COUNT(*) AS nbre_entrees FROM trajets WHERE ID='$id_sess'");
+				$reponse = mysql_query("SELECT COUNT(*) AS nbre_entrees FROM trajets WHERE id_conducteur='$id_sess'");
 				$compt = mysql_fetch_array($reponse);	
 				$n=$compt['nbre_entrees'];
 				mysql_close();
@@ -208,36 +235,46 @@ background:#f22096;
 			  	<?php
 if(isset($_GET['edit_profile'])){ ?>	
 		
-		   		<div class="column4">
+	<div class="column4">
         
         <div class="title">Modifier mes donn&eacute;es </div> 
 		<?php
-include('edit_profile.php');
+			include('edit_profile.php');
 		?>
-</div>
+	</div>
 <?php } ?>
 
-			  	<?php
+<?php
 if(isset($_GET['detail_projet'])){ ?>	
 		
-		   		<div class="column4">
+	<div class="column4">
         
         <div class="title">D&eacute;tails trajets</div> 
 		<?php
-include('contact.php');
+			include('contact.php');
 		?>
-</div>
+	</div>
 <?php } ?>
 
-			  	<?php
+<?php
 if(isset($_GET['supprimer_trajet'])){ ?>	
 		
-		   		<div class="column4">
-        
-		<?php
-include('supprimer_trajet.php');
-		?>
-</div>
+	<div class="column4">
+    <?php
+		include('supprimer_trajet.php');
+	?>
+	</div>
+<?php } ?>
+
+<?php
+if(isset($_GET['supprimer_reservation'])){  ?>	
+		
+	<div class="column4">
+    <?php
+		include('supprimer_reservation.php');
+		
+	?>
+	</div>
 <?php } ?>
 
 
@@ -254,9 +291,20 @@ include('edit_trajet.php');
 </div>
 <?php } ?>
 
+<?php 
+if(isset($_GET['reserver'])){ ?>	
+		
+		   		<div class="column4">
+        
+        <div class="title">Reservation</div> 
+		<?php
+include('reserver_trajet.php');
+		?>
+</div>
+<?php } ?>
 
 
-			  	<?php
+<?php
 if(isset($_GET['gestion_mes_trajets'])){ ?>	
 		
 		   		<div class="column4">
@@ -264,6 +312,17 @@ if(isset($_GET['gestion_mes_trajets'])){ ?>
         <div class="title">Gestion de mes trajets </div> 
 		<?php
 include('gestion_mes_trajets.php');
+		?>
+</div>
+<?php } ?>
+<?php
+if(isset($_GET['gestion_mes_reservations'])){ ?>	
+		
+		   		<div class="column4">
+        
+        <div class="title">Gestion de mes réservations </div> 
+		<?php
+include('gestion_mes_reservations.php');
 		?>
 </div>
 <?php } ?>
@@ -292,17 +351,23 @@ include('enregistre_trajet.php');
 		?>
 </div>
 <?php } ?>
+<?php 
+if(isset($_GET['frame_gauche'])){ 	
+		
+		include('frame_gauche.php');
+		
+} ?>
 
 
 
 
 
 
-   		<div class="column4">
-        
-        <div class="title">Rechercher un trajet </div> 
-        	      <form action="index.php" method="post">
-				  </br>
+<div class="column4">
+
+    <div class="title">Rechercher un trajet </div> 
+    <form action="index.php" method="post">
+		</br>
 		<STRONG>Veuillez saisir les informations n&eacute;cessaires </strong></br>
 		D&eacute;part:
 		<input type="hidden" name="rech" />
@@ -332,7 +397,9 @@ include('enregistre_trajet.php');
 		
 		<!-- <input type="text" name="ville2" value="Sevenans" value="Belfort" onFocus="javascript:this.value=''" size="15"> -->
 		Date:
-		<input type="text" name="ville2" value="" onFocus="javascript:this.value=''" size="15">
+		<input type="text" id="datepicker1" name="date" value="" onFocus="javascript:this.value=''" size="15"> 
+			
+		
 		Horaire 
 		<?php
 $heure_rech = "tous";

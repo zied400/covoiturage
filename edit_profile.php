@@ -13,19 +13,19 @@ function verification()
    document.formulaire.pseudo.focus();
    return false;
   }
-   else if(document.formulaire.pwd.value == "") {
+   else if(document.formulaire.mdp.value == "") {
    alert("Veuillez entrer un mot de passe svp");
-   document.formulaire.pwd.focus();
+   document.formulaire.mdp.focus();
    return false;
   }
-   else if(document.formulaire.pwd2.value == "") {
+   else if(document.formulaire.mdp2.value == "") {
    alert("Veuillez confirmer votre mot de passe svp");
-   document.formulaire.pwd2.focus();
+   document.formulaire.mdp2.focus();
    return false;
   }
-  else   if(document.formulaire.pwd2.value != document.formulaire.pwd.value) {
+  else   if(document.formulaire.mdp2.value != document.formulaire.mdp.value) {
    alert("Veuillez entrer un mot de passe identique svp");
-   document.formulaire.pwd2.focus();
+   document.formulaire.mdp2.focus();
    return false;
   }
   else   if(document.formulaire.mail.value == "") {
@@ -67,7 +67,7 @@ $modif=$_GET['modif'];
 
 		$pseudo2="";
 		$mail="";
-		$pwd="";
+		$mdp="";
 		$nom="nom";
 		$prenom="prenom";
 	}
@@ -78,12 +78,12 @@ if ($_SESSION['loginOK'] == true AND $modif == 1) {
 		
 	include('connexion_SQL.php');
 		
-	$reponse = mysql_query("SELECT * FROM conducteurs WHERE ID='$id'") or die(mysql_error());
+	$reponse = mysql_query("SELECT * FROM conducteurs WHERE id_conducteur='$id'") or die(mysql_error());
 		
 	while ($donnees = mysql_fetch_array($reponse) ) {
 		$pseudo2=$donnees['pseudo'];
 		$mail=$donnees['mail'];
-		$pwd=$donnees['pwd'];
+		$mdp=$donnees['mdp'];
 		$nom=$donnees['nom'];
 		$prenom=$donnees['prenom'];
 		$tel=$donnees['tel'];
@@ -140,14 +140,14 @@ else {echo"enregistre_conducteur.php"; }
 	<table  border="0">
   <tr>
     <td width="240" height="24"><div align="right">Je choisis un mot de passe*</div></td>
-    <td width="500"><input type="password" name="pwd" <?php echo "value=\"$pwd\""; ?> ></td>
+    <td width="500"><input type="password" name="mdp" <?php echo "value=\"$mdp\""; ?> ></td>
   </tr>
 	</table>
   
   <table  border="0">
   <tr>
     <td width="240" height="24"><div align="right">Je confirme le mot de passe*</div></td>
-      <td width="500"><input type="password" name="pwd2" <?php echo "value=\"$pwd\""; ?>></td>
+      <td width="500"><input type="password" name="mdp2" <?php echo "value=\"$mdp\""; ?>></td>
   </tr>
 	</table>
 <p>&nbsp;</p>

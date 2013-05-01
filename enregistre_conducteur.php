@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: text/html; charset=UTF-8');
 session_start();
 ?>
 
@@ -12,7 +13,7 @@ session_start();
 	
 	$pseudo=mysql_real_escape_string(htmlspecialchars($_POST['pseudo']));
 	$mail=mysql_real_escape_string(htmlspecialchars($_POST['mail']));
-	$pwd=mysql_real_escape_string(htmlspecialchars($_POST['pwd']));
+	$mdp=mysql_real_escape_string(htmlspecialchars($_POST['mdp']));
 	//$heure=mysql_real_escape_string(htmlspecialchars($_POST['heure']));
 	
 	$nom=mysql_real_escape_string(htmlspecialchars($_POST['nom']));
@@ -30,7 +31,7 @@ session_start();
 	{
 	$id=$_SESSION['id'];
 			
-	mysql_query("UPDATE conducteurs SET pseudo='$pseudo', mail='$mail', pwd='$pwd', nom='$nom', prenom='$prenom', tel='$tel' WHERE ID='$id' LIMIT 1") or die(mysql_error());
+	mysql_query("UPDATE conducteurs SET pseudo='$pseudo', mail='$mail', mdp='$mdp', nom='$nom', prenom='$prenom', tel='$tel' WHERE id_conducteur='$id' LIMIT 1") or die(mysql_error());
 	
 		?>
 	<table width="940" border="0" align="left" >
@@ -77,7 +78,7 @@ session_start();
 		
 		<?php
 						
-	   	mysql_query("INSERT INTO conducteurs VALUES('', '$pseudo', '$mail', '$pwd', '$nom', '$prenom', '$tel')");
+	   	mysql_query("INSERT INTO conducteurs VALUES('', '$pseudo', '$mail', '$mdp', '$nom', '$prenom', '$tel')");
 			
 		$_SESSION['pseudo'] = $pseudo;
 		$_SESSION['mail'] = $mail;
@@ -92,13 +93,13 @@ session_start();
 						
 		while ($donnees = mysql_fetch_array($reponse) )
 			{
-			$_SESSION['id'] = $donnees['ID'];
+			$_SESSION['id'] = $donnees['id_conducteur'];
 			}
 		
 		mysql_close();
 		
 		$objet="votre inscription sur covoiturage";
-		$message="Bonjour,<BR><BR>Bienvenue sur le site covoiturage.<BR><BR>Voici vos informations personelles:<BR><BR>pseudo : ".$pseudo."<BR>mot de passe : ".$pwd."<BR><BR>L'équipe de <a href=\"http://vvcovoiturage.free.fr\">vvcovoiturage</a>";
+		$message="Bonjour,<BR><BR>Bienvenue sur le site covoiturage.<BR><BR>Voici vos informations personelles:<BR><BR>pseudo : ".$pseudo."<BR>mot de passe : ".$mdp."<BR><BR>L'équipe de <a href=\"http://vvcovoiturage.free.fr\">vvcovoiturage</a>";
 		
 		$headers .='Content-Type: text/html; charset="iso-8859-1"'."\n"; 
 	     

@@ -22,10 +22,10 @@ include('connexion_SQL.php');
 			echo "<script>alert(unescape('D%E9sol%E9, ce pseudo n\'existe pas !'))</script>"; 
 			}
 			
-		elseif ($password == $donnees['pwd']) 
+		elseif ($password == $donnees['mdp']) 
 			{
 			$_SESSION['pseudo'] = $donnees['pseudo'];
-			$_SESSION['id'] = $donnees['ID'];
+			$_SESSION['id'] = $donnees['id_conducteur'];
 			$_SESSION['mail'] = $donnees['mail'];
 			$_SESSION['loginOK'] = true;
 			
